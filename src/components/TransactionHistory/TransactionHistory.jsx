@@ -23,11 +23,11 @@ export const TransactionHistory = ({ items }) => {
         {items.map(({ id, type, amount, currency }, i) => (
           <Tr
             key={id}
-            style={{
-              backgroundColor: `${i % 2 === 0 ? 'white' : '#c7c6c6'}`,
-            }}
+            // style={{
+            //   backgroundColor: `${i % 2 === 0 ? 'white' : '#c7c6c6'}`,
+            // }}
           >
-            <TdTransaction>{type}</TdTransaction>
+            <TdTransaction>{capitalizeFirstLetter(type)}</TdTransaction>
             <TdTransaction>{amount}</TdTransaction>
             <TdTransaction>{currency}</TdTransaction>
           </Tr>
@@ -36,6 +36,10 @@ export const TransactionHistory = ({ items }) => {
     </TransactionTable>
   );
 };
+
+function capitalizeFirstLetter(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
 
 TransactionHistory.protoType = {
   items: PropTypes.arrayOf(

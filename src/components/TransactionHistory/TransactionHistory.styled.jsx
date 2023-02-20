@@ -31,4 +31,8 @@ export const Tbody = styled.tbody`
   background-color: white;
 `;
 
-export const Tr = styled.tr``;
+export const Tr = styled.tr`
+  :nth-of-type(even) {
+    background-color: #c7c6c6;
+  }
+`;

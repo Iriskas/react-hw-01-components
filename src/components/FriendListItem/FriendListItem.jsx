@@ -6,7 +6,7 @@ import {
   FriendName,
 } from './FriendListItem.styled';
 
-export const FriendListItem = ({ avatar, name, isOnline }) => {
+export const FriendListItem = ({ friend: { avatar, name, isOnline } }) => {
   return (
     <ItemFriendList>
       <FriendStatus
@@ -19,7 +19,9 @@ export const FriendListItem = ({ avatar, name, isOnline }) => {
 };
 
 FriendListItem.protoType = {
-  avatar: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  isOnline: PropTypes.bool.isRequired,
+  friend: PropTypes.shape({
+    avatar: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    isOnline: PropTypes.bool.isRequired,
+  }).isRequired,
 };
